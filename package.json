@@ -1,0 +1,39 @@
+{
+  "name": "lux-mobility-alert-backend",
+  "version": "0.0.1",
+  "description": "Smart alerts in Luxembourg",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InTechSA/lux-mobility-alert-backend.git"
+  },
+  "keywords": [
+    "open-data",
+    "luxembourg"
+  ],
+  "author": "InTech S.A.",
+  "license": "ISC",
+  "dependencies": {
+    "fcm-push": "^1.1.2",
+    "mongodb": "^2.2.16",
+    "node-config-manager": "1.1.0",
+    "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "istanbul": "0.4.5",
+    "jshint": "2.9.4",
+    "mocha": "3.1.2",
+    "rewire": "2.5.2"
+  },
+  "engines": {
+    "node": "6.9.1"
+  },
+  "bugs": {
+    "url": "https://github.com/InTechSA/lux-mobility-alert-backend/issues"
+  },
+  "homepage": "https://github.com/InTechSA/lux-mobility-alert-backend#readme"
+}
