@@ -35,7 +35,8 @@ mongo.connect(cfgMongo.uri, cfgMongo.options, (err) => {
 });
 
 var CronJob = require('cron').CronJob;
+const request = require('request');
 
 new CronJob('* * * * *', () => {
-  post(cfgApi.uri+'/alertComputing');
+  request.post(cfgApi.uri+'/alertComputing');
 }, null, true, 'Europe/Luxembourg');
