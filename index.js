@@ -38,4 +38,4 @@ var CronJob = require('cron').CronJob;
 
 new CronJob('* * * * *', () => {
   post(cfgApi.uri+'/alertComputing');
-}, null, true, 'Luxembourg');
+}, null, true, 'Europe/Luxembourg');
