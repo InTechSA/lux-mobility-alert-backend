@@ -37,9 +37,13 @@ mongo.connect(cfgMongo.uri, cfgMongo.options, (err) => {
 var CronJob = require('cron').CronJob;
 const request = require('request');
 
-new CronJob('* * * * *', () => {
-  request.post(cfgApi.uri+'/alertComputing',
+var options = {
+  url: cfgApi.uri+'/alertComputing',
   headers: {
       'Authorization': '9acc7830a4f74b3968c3e7cce75bd14cc6ddd6991832eae0bfaf119e4db6091f1ae0b9d1ca3481b4676cc81b3df62f929cc5315875f6fe195d2f259c85193891'
-    });
+  }
+};
+
+new CronJob('* * * * *', () => {
+  request.post(options);
 }, null, true, 'Europe/Luxembourg');
