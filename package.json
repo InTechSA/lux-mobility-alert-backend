@@ -17,6 +17,7 @@
   "author": "InTech S.A.",
   "license": "ISC",
   "dependencies": {
+    "cron": "^1.2.1",
     "fcm-push": "^1.1.2",
     "mongodb": "^2.2.16",
     "node-config-manager": "1.1.0",

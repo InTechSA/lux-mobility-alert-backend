@@ -10,10 +10,12 @@ cfgManager.init({
 
 cfgManager
     .addConfig('mongo')
-    .addConfig('firebase');
+    .addConfig('firebase')
+    .addConfig('api');
 
 const cfgMongo = cfgManager.method.Mongo();
 const cfgFirebase = cfgManager.method.Firebase();
+const cfgApi = cfgManager.method.Api();
 
 const mongo = require('./lib/mongo');
 const AlertScanner = require('./lib/alert-scanner');
@@ -31,3 +33,9 @@ mongo.connect(cfgMongo.uri, cfgMongo.options, (err) => {
 
     AlertScanner.scan(cfgMongo.collection, {'removed':false, 'deviceId':{'$exists': true}});
 });
+
+var CronJob = require('cron').CronJob;
+
+new CronJob('* * * * *', () => {
+  post(cfgApi.uri+'/alertComputing');
+}, null, true, 'Luxembourg');
