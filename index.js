@@ -44,13 +44,6 @@ var options = {
   }
 };
 
-function callback(err, res, body) {
-  if (!err && res.statusCode == 200) {
-    var info = JSON.parse(body);
-    console.log("Send notification");
-  }
-}
-
 new CronJob('* * * * *', () => {
-  request.post(options, callback);
+  request.post(options);
 }, null, true, 'Europe/Luxembourg');
