@@ -1,2 +1,2 @@
-uri:
-collection: 
+uri: mongodb://luxmobility-mongo:ebb290795f9f4b7008e32bb9df0955a1@192.168.11.55:10017/luxmobility-mongo
+collection: Alert
