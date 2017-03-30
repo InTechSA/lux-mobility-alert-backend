@@ -40,7 +40,7 @@ const request = require('request');
 var options = {
   url: cfgApi.uri+'/alertComputing',
   headers: {
-      'Authorization': '9acc7830a4f74b3968c3e7cce75bd14cc6ddd6991832eae0bfaf119e4db6091f1ae0b9d1ca3481b4676cc81b3df62f929cc5315875f6fe195d2f259c85193891'
+      'Authorization': 'd28f0e47e200cb57685a2de56d18ce2b64b8a930429df604f9ebd0011929f815dba9fd2d3dff7c4835db7a6a7a9805bcf3e3baa82df1b9d465eb380ed5dc2713'
   }
 };
 
