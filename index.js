@@ -44,7 +44,31 @@ mongo.connect(cfgMongo.uri, cfgMongo.options, (err) => {
 
     console.log('< init.MongoDB > Status: Connected');
 
-    AlertScanner.scan(cfgMongo.collection, {'removed':false, 'deviceId':{'$exists': true}});
+    mongo.existsCollection('Alert', (err, exists) => {
+
+              if(err) {
+                console.log('< init.MongoDB > error while trying to test if Alert collection exists');
+                return callback(err);
+              }
+
+              console.log('< init.MongoDB > Alert collection does exist ? '+exists);
+
+              if(!exists) {
+                console.log('< init.MongoDB > Alert collection does not exist');
+
+                mongo.createAlertCollection((err, collection) => {
+
+                  if(err) {
+                    console.log('< init.MongoDB > error while trying to create Alert collection')
+                    return callback(err);
+                  }
+
+                  AlertScanner.scan(cfgMongo.collection, {'removed':false, 'deviceId':{'$exists': true}});
+
+                })
+              } else AlertScanner.scan(cfgMongo.collection, {'removed':false, 'deviceId':{'$exists': true}});
+    });
+
 });
 
 var CronJob = require('cron').CronJob;
