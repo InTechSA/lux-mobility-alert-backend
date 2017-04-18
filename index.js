@@ -21,6 +21,17 @@ const mongo = require('./lib/mongo');
 const AlertScanner = require('./lib/alert-scanner');
 const notifier = require('./lib/notifier');
 
+const express = require('express');
+const app = express();
+
+
+app.get('/', require('./lib/status')());
+app.get('/status', require('./lib/status')());
+
+app.listen(cfgApi.port, () => {
+    console.log(`Express server run on ${cfgApi.port}`);
+});
+
 notifier.init(cfgFirebase.cloudMessaging);
 
 console.log(`< init.MongoDB > Connect to Mongo Database ${cfgMongo.uri}`);
