@@ -28,6 +28,8 @@ const app = express();
 app.get('/', require('./lib/status')());
 app.get('/status', require('./lib/status')());
 
+cfgApp.port = process.env.PORT || cfgApp.port;
+
 app.listen(cfgApi.port, () => {
     console.log(`Express server run on ${cfgApi.port}`);
 });
